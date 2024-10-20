@@ -1,0 +1,670 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sapphire</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css">
+    <link rel="icon" type="image" href="new.png">
+    <style>
+        body {
+            background-color: #212529;
+            padding-top: 50px;
+        }
+
+        .search-bar-container {
+            margin-right: 2%;
+            border-radius: 10px;
+        }
+
+        .smallScreenInput {
+            width: 0;
+            opacity: 0;
+            transition: width 0.5s ease, opacity 0.5s ease;
+        }
+
+        .input-group:focus-within .smallScreenInput {
+            display: flex;
+            width: 50%;
+            opacity: 1;
+        }
+
+        .FH {
+            cursor: default;
+        }
+
+        #FI1:hover {
+            color: blue !important;
+        }
+
+        #FI2:hover {
+            color: #a42a2a !important;
+        }
+
+        #FI3:hover {
+            color: red !important;
+        }
+
+        .whatsImages {
+            border-radius: 50%;
+            max-width: 150px;
+        }
+
+        .trending_text {
+            font-size: 10px;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+
+        .zoomed:hover {
+            transform: scale(1.15);
+            transition: 0.5s ease-in-out;
+        }
+
+        .carousel-item {
+            transition: transform 1s ease-in-out;
+        }
+
+        .carousel-inner {
+            position: relative;
+        }
+
+        .carousel-img {
+            width: 250px;
+            transition: transform 0.5s ease;
+            opacity: 1;
+        }
+
+        .carousel-item.active .carousel-img {
+            transform: scale(1.15);
+            opacity: 1;
+        }
+
+        @media screen and (min-width: 991px) {
+            .input-group .smallScreenInput {
+                display: none !important;
+            }
+        }
+
+        @media screen and (max-width: 991px) {
+            .sidebar {
+                background-color: rgba(255, 255, 255, 0.15);
+            }
+
+        }
+
+        @media (min-width: 768px) {
+            .collapse {
+                display: block !important;
+                height: 30vh !important;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .FH {
+                cursor: pointer;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+        <div class="container-fluid position-relative">
+            <div class="d-flex justify-content-between align-items-center w-100">
+
+                <a class="navbar-brand fs-5" href="#">
+                    <h5 style="font-weight: 700; transform: scaleY(1.25);">S A P P H I R E</h6>
+                </a>
+                <div class="search-bar-container d-lg-flex">
+                    <div class="input-group">
+                        <input type="text" required class="form-control  rounded-pill d-none d-lg-flex"
+                            placeholder="FIND YOUR FAVOURITES">
+                        <input type="text" required class="smallScreenInput form-control  rounded-pill d-lg-flex"
+                            placeholder="SEARCH">
+                        <button type="submit" class="btn btn-dark bg-transparent border-0"><i
+                                class=" fa fa-search d-flex align-items-center"></i></button>
+                    </div>
+                </div>
+
+                <div class="d-flex align-items-center">
+                    <i class="fas fa-truck fa-lg mx-3 text-light"></i>
+                    <i class="fas fa-user fa-lg mx-3 text-light"></i>
+                    <i class="fas fa-shopping-cart fa-lg mx-3 text-light"></i>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand fs-6 fw-bold d-lg-none" href="#">EXPLORE MORE </a>
+            <button class="navbar-toggler shadow-none border-0" type="button" data-bs-toggle="offcanvas"
+                data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="sidebar offcanvas offcanvas-start text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar"
+                aria-labelledby="offcanvasDarkNavbarLabel">
+
+                <div class="offcanvas-header border-bottom">
+                    <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">S A P P H I R E</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
+                        aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body d-flex flex-column">
+                    <ul class="navbar-nav align-items-center justify-content-center flex-grow-1 pe-3">
+                        <li class="nav-item mx-2">
+                            <a class="nav-link" href="#home">HOME</a>
+                        </li>
+                        <li class="nav-item mx-2">
+                            <a class="nav-link" href="#NewIn">NEW IN</a>
+                        </li>
+                        <li class="nav-item mx-2">
+                            <a class="nav-link" href="#Woman">WOMAN</a>
+                        </li>
+                        <li class="nav-item mx-2">
+                            <a class="nav-link" href="#man">MAN</a>
+                        </li>
+                        <li class="nav-item mx-2">
+                            <a class="nav-link" href="#Kids">KIDS</a>
+                        </li>
+                        <li class="nav-item mx-2">
+                            <a class="nav-link" href="#beauty">BEAUTY</a>
+                        </li>
+                        <li class="nav-item mx-2">
+                            <a class="nav-link" href="#accessories">ACCESSORIES</a>
+                        </li>
+                        <li class="nav-item mx-2">
+                            <a class="nav-link" href="#SpecialOffers">SPECIAL OFFERS</a>
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div id="carouselExampleDark" class="carousel carousel-dark carousel-fade" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active"
+                aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1"
+                aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2"
+                aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+            <!-- First Slide -->
+            <div class="carousel-item active" data-bs-interval="2000">
+                <img src="Banner Img/1L.webp" class="d-none d-md-block w-100" alt="Large Image 1">
+                <img src="Banner Img/1S.webp" class="d-block d-md-none w-100" alt="Small Image 1">
+                <div class="carousel-caption text-white d-flex flex-column justify-content-between text-start">
+                    <h5 class="fw-bold text-md-start">UNSTITCHED</h5>
+                    <h5 class="text-md-start">FALL/ WINTER '24</h5>
+                </div>
+            </div>
+
+            <!-- Second Slide -->
+            <div class="carousel-item" data-bs-interval="2000">
+                <img src="Banner Img/2L.webp" class="d-none d-md-block w-100" alt="Large Image 2">
+                <img src="Banner Img/2S.webp" class="d-block d-md-none w-100" alt="Small Image 2">
+                <div class="carousel-caption text-white d-flex flex-column justify-content-between text-start">
+                    <h5>READY TO WEAR</h5>
+                    <p>FALL/ WINTER '24 NEW ARRIVALS</p>
+                </div>
+            </div>
+
+            <!-- Third Slide -->
+            <div class="carousel-item" data-bs-interval="2000">
+                <img src="Banner Img/3L.webp" class="d-none d-md-block w-100" alt="Large Image 3">
+                <img src="Banner Img/3S.webp" class="d-block d-md-none w-100" alt="Small Image 3">
+                <div class="carousel-caption text-BLACK d-flex flex-column justify-content-between text-start">
+                    <h5>WEST</h5>
+                    <p>FALL/ WINTER '24.</p>
+                </div>
+            </div>
+        </div>
+
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+
+    <!-- WHAT'S NEW -->
+    <div class="fw-bold text-white text-center mt-4">
+        <h5>WHAT'S NEW</h5>
+    </div>
+    <div id="imageCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="2000">
+        <div class="carousel-inner">
+            <!-- First Slide - First 4 images -->
+            <div class="carousel-item active">
+                <div class="row">
+                    <div class="col-3">
+                        <img src="What's New/fall-winter-kids.jpg" class="d-block whatsImages w-100" alt="Image 1">
+                    </div>
+                    <div class="col-3">
+                        <img src="What's New/LUXE-unstitched.jpg" class="d-block whatsImages w-100" alt="Image 2">
+                    </div>
+                    <div class="col-3">
+                        <img src="What's New/men_s-shawls.jpg" class="d-block whatsImages w-100" alt="Image 3">
+                    </div>
+                    <div class="col-3">
+                        <img src="What's New/quilt-covers_b04e2162-91cd-4276-af05-14ff41e760d0.jpg"
+                            class="d-block whatsImages w-100" alt="Image 4">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Second Slide - Remaining 4 images -->
+            <div class="carousel-item">
+                <div class="row">
+                    <div class="col-3">
+                        <img src="What's New/whats_new___rtw_silk.png" class="d-block whatsImages w-100" alt="Image 5">
+                    </div>
+                    <div class="col-3">
+                        <img src="What's New/whats_new___stitched_for_you.jpg" class="d-block whatsImages w-100"
+                            alt="Image 6">
+                    </div>
+                    <div class="col-3">
+                        <img src="What's New/whats_new___west_sweaters.jpg" class="d-block whatsImages w-100"
+                            alt="Image 7">
+                    </div>
+                    <div class="col-3">
+                        <img src="What's New/whats_new_us_daily.jpg" class="d-block whatsImages w-100" alt="Image 8">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Controls -->
+        <button class="carousel-control-prev" type="button" data-bs-target="#imageCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#imageCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+
+    <!-- SHOP BY CATEGORY -->
+    <div class="fw-bold text-white text-center mt-5">
+        <h5>SHOP BY CATEGORY</h5>
+    </div>
+
+    <div id="imageCarousel1" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
+        <div class="carousel-inner">
+            <!-- First Slide - First 4 images -->
+            <div class="carousel-item active">
+                <div class="row">
+                    <div class="col-3">
+                        <img src="categories slider/man-sbc.webp" class="d-block w-100" alt="Image 1">
+                        <h5 class="text-white text-center mt-2">MAN</h5>
+                    </div>
+                    <div class="col-3">
+                        <img src="categories slider/sbc-_-beauty.webp" class="d-block w-100" alt="Image 2">
+                        <h5 class="text-white text-center mt-2">BEAUTY</h5>
+                    </div>
+                    <div class="col-3">
+                        <img src="categories slider/sbc___homeee.webp" class="d-block w-100" alt="Image 3">
+                        <h5 class="text-white text-center mt-2">HOME</h5>
+                    </div>
+                    <div class="col-3">
+                        <img src="categories slider/sbc___kids.webp" class="d-block w-100" alt="Image 4">
+                        <h5 class="text-white text-center mt-2">KIDS</h5>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Second Slide - Remaining 4 images -->
+            <div class="carousel-item">
+                <div class="row">
+                    <div class="col-3">
+                        <img src="categories slider/sbc___modest_wear.webp" class="d-block w-100" alt="Image 5">
+                        <h5 class="text-white text-center mt-2">MODEST WEAR</h5>
+                    </div>
+                    <div class="col-3">
+                        <img src="categories slider/sbc___rtw.webp" class="d-block w-100" alt="Image 6">
+                        <h5 class="text-white text-center mt-2">READY TO WEAR</h5>
+                    </div>
+                    <div class="col-3">
+                        <img src="categories slider/sbc___us_2.webp" class="d-block w-100" alt="Image 7">
+                        <h5 class="text-white text-center mt-2">UNSTITCHED</h5>
+                    </div>
+                    <div class="col-3">
+                        <img src="categories slider/sbc___west.webp" class="d-block w-100" alt="Image 8">
+                        <h5 class="text-white text-center mt-2">WEST</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Controls -->
+        <button class="carousel-control-prev" type="button" data-bs-target="#imageCarousel1" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#imageCarousel1" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+
+    <!-- TRENDING -->
+    <div class="fw-bold text-white text-center mt-5">
+        <h5>TRENDING</h5>
+    </div>
+
+    <div id="imageCarousel2" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
+        <div class="carousel-inner">
+            <!-- First Slide - First 4 images -->
+            <div class="carousel-item active">
+                <div class="row">
+                    <div class="col-3">
+                        <img src="Trending/03PESGW24V23_6.webp" class="d-block w-100 zoomed" alt="Image 1">
+                        <h6 class="text-white trending_text mt-2">EMBELLISHED SILK KAFTAN</h6>
+                        <h6 class="text-white trending_text">RTW Winter '24 New Arrivals</h6>
+                        <h6 class="text-white trending_text">Rs.8,990.00</h6>
+                    </div>
+                    <div class="col-3">
+                        <img src="Trending/0TSTSLW24V48_1.webp" class="d-block w-100 zoomed" alt="Image 2">
+                        <h6 class="text-white trending_text mt-2">EMBELLISHED SILK KAFTAN</h6>
+                        <h6 class="text-white trending_text">RTW Winter '24 New Arrivals</h6>
+                        <h6 class="text-white trending_text">Rs.8,990.00</h6>
+                    </div>
+                    <div class="col-3">
+                        <img src="Trending/0U2DEDY24V83_3.webp" class="d-block w-100 zoomed" alt="Image 3">
+                        <h6 class="text-white trending_text mt-2">2 PIECE - EMBROIDERED KHADDAR SUIT</h6>
+                        <h6 class="text-white trending_text">Unstitched Winter '24 New Arrivals</h6>
+                        <h6 class="text-white trending_text">Rs.4,290.00</h6>
+                    </div>
+                    <div class="col-3">
+                        <img src="Trending/2STDW24V437B_2.webp" class="d-block w-100 zoomed" alt="Image 4">
+                        <h6 class="text-white trending_text mt-2">EMBROIDERED LAWN SHIRT</h6>
+                        <h6 class="text-white trending_text">RTW Winter '24 New Arrivals</h6>
+                        <h6 class="text-white trending_text">Rs.5,990.00</h6>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Second Slide - Remaining 4 images -->
+            <div class="carousel-item">
+                <div class="row">
+                    <div class="col-3">
+                        <img src="Trending/2STDYW24V443_3.webp" class="d-block w-100 zoomed" alt="Image 5">
+                        <h6 class="text-white trending_text mt-2">EMBROIDERED DOBBY SHIRT</h6>
+                        <h6 class="text-white trending_text">RTW Winter '24 New Arrivals</h6>
+                        <h6 class="text-white trending_text">Rs.5,990.00</h6>
+                    </div>
+                    <div class="col-3">
+                        <img src="Trending/U2TEST24V815_5.webp" class="d-block w-100 zoomed" alt="Image 6">
+                        <h6 class="text-white trending_text mt-2">2 PIECE - EMBROIDERED DOBBY SUIT</h6>
+                        <h6 class="text-white trending_text">Unstitched Winter '24 New Arrivals</h6>
+                        <h6 class="text-white trending_text">Rs.4,290.00</h6>
+                    </div>
+                    <div class="col-3">
+                        <img src="Trending/U2TEST24V816_1.webp" class="d-block w-100 zoomed" alt="Image 7">
+                        <h6 class="text-white trending_text mt-2">2 PIECE - EMBROIDERED DOBBY SUIT</h6>
+                        <h6 class="text-white trending_text">Unstitched Winter '24 New Arrivals</h6>
+                        <h6 class="text-white trending_text">Rs.4,090.00</h6>
+                    </div>
+                    <div class="col-3">
+                        <img src="Trending/U3PESG24V826_1.webp" class="d-block w-100 zoomed" alt="Image 8">
+                        <h6 class="text-white trending_text mt-2">2 PIECE - EMBROIDERED KHADDAR SUIT</h6>
+                        <h6 class="text-white trending_text">Unstitched Winter '24 New Arrivals</h6>
+                        <h6 class="text-white trending_text">Rs.7,590.00</h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Controls -->
+        <button class="carousel-control-prev" type="button" data-bs-target="#imageCarousel2" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#imageCarousel2" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+
+
+    <!-- MORE TO EXPLORE -->
+    <div id="imageCarousel3" class="carousel slide py-4" data-bs-ride="carousel" data-bs-interval="3000">
+        <div class="carousel-inner">
+            <!-- First Slide -->
+            <div class="carousel-item active">
+                <div class="d-flex justify-content-center align-items-center">
+                    <img src="MoreToExplore/fabric-more-to-explore.jpg" class="img-fluid carousel-img" alt="Image 1">
+                </div>
+            </div>
+            <!-- Second Slide -->
+            <div class="carousel-item">
+                <div class="d-flex justify-content-center align-items-center">
+                    <img src="MoreToExplore/fragrances-more-to-exlore.jpg" class="img-fluid carousel-img" alt="Image 2">
+                </div>
+            </div>
+            <!-- Third Slide -->
+            <div class="carousel-item">
+                <div class="d-flex justify-content-center align-items-center">
+                    <img src="MoreToExplore/more_to_explore_c9f48b98-b619-4603-a6c7-9754e5063d2c.jpg"
+                        class="img-fluid carousel-img" alt="Image 3">
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="d-flex justify-content-center align-items-center">
+                    <img src="MoreToExplore/south-collection.jpg" class="img-fluid carousel-img" alt="Image 3">
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="d-flex justify-content-center align-items-center">
+                    <img src="MoreToExplore/styled-by-iqra.jpg" class="img-fluid carousel-img" alt="Image 3">
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="d-flex justify-content-center align-items-center">
+                    <img src="MoreToExplore/styled-by-you-more-to-explore.jpg" class="img-fluid carousel-img"
+                        alt="Image 3">
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="d-flex justify-content-center align-items-center">
+                    <img src="MoreToExplore/winter-coats.jpg" class="img-fluid carousel-img" alt="Image 3">
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Carousel Controls -->
+        <button class="carousel-control-prev" type="button" data-bs-target="#imageCarousel3" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#imageCarousel3" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+    <!-- SYLED BY YOU -->
+    <div id="imageCarousel4" class="carousel slide py-4" style="background: rgb(228, 225, 199);" data-bs-ride="carousel"
+        data-bs-interval="3000">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <div class="row">
+                    <div class="col-3">
+                        <img src="styledBy/Rafya-1.webp" class="d-block w-100 zoomed" alt="Image 1">
+                        <h6 class="text-dark trending_text text-center fw-bold mt-2">RAFYA MINHAS KHAN</h6>
+                        <h6 class="text-dark text-center trending_text">@rafyaminhas</h6>
+                        <h6 class="text-dark text-center trending_text">wearing our</h6>
+                        <h6 class="text-dark text-center trending_text">3 Piece- Embroidered Organza Suit</h6>
+                    </div>
+                    <div class="col-3">
+                        <img src="styledBy/sby-areesha (1).webp" class="d-block w-100 zoomed" alt="Image 2">
+                        <h6 class="text-dark trending_text text-center fw-bold mt-2">ARISHA KHAN</h6>
+                        <h6 class="text-dark text-center trending_text">@littlekhanwanderlust</h6>
+                        <h6 class="text-dark text-center trending_text">wearing our</h6>
+                        <h6 class="text-dark text-center trending_text">3 Piece- Embroidered Velvet Suit</h6>
+                    </div>
+                    <div class="col-3">
+                        <img src="styledBy/sby-hira.webp" class="d-block w-100 zoomed" alt="Image 3">
+                        <h6 class="text-dark trending_text text-center fw-bold mt-2">HIRA ATTIQUE</h6>
+                        <h6 class="text-dark text-center trending_text">@hirableeh</h6>
+                        <h6 class="text-dark text-center trending_text">wearing our</h6>
+                        <h6 class="text-dark text-center trending_text">2 Piece- Embroidered Light Khaddar Suit</h6>
+                    </div>
+                    <div class="col-3">
+                        <img src="styledBy/sby-jiya.webp" class="d-block w-100 zoomed" alt="Image 4">
+                        <h6 class="text-dark trending_text text-center fw-bold mt-2">JIYA KHURRAM</h6>
+                        <h6 class="text-dark text-center trending_text">@dearwalletpk</h6>
+                        <h6 class="text-dark text-center trending_text">wearing our</h6>
+                        <h6 class="text-dark text-center trending_text">3 Piece- Embroidered Linen Suit</h6>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="row">
+                    <div class="col-3">
+                        <img src="styledBy/sby-jiya.webp" class="d-block w-100 zoomed" alt="Image 8">
+                        <h6 class="text-dark trending_text text-center fw-bold mt-2">JIYA KHURRAM</h6>
+                        <h6 class="text-dark text-center trending_text">@dearwalletpk</h6>
+                        <h6 class="text-dark text-center trending_text">wearing our</h6>
+                        <h6 class="text-dark text-center trending_text">3 Piece- Embroidered Linen Suit</h6>
+                    </div>
+                    <div class="col-3">
+                        <img src="styledBy/sby-mahum.webp" class="d-block w-100 zoomed" alt="Image 6">
+                        <h6 class="text-dark trending_text text-center fw-bold mt-2">MAHAM YAQUB</h6>
+                        <h6 class="text-dark text-center trending_text">@dearwalletpk</h6>
+                        <h6 class="text-dark text-center trending_text">wearing our</h6>
+                        <h6 class="text-dark text-center trending_text">3 Piece- Embroidered Linen Suit</h6>
+                    </div>
+                    <div class="col-3">
+                        <img src="styledBy/sby-ramsha.jpg" class="d-block w-100 zoomed" alt="Image 7">
+                        <h6 class="text-dark trending_text text-center fw-bold mt-2">RAMSHA AHMAD KHAN</h6>
+                        <h6 class="text-dark text-center trending_text">@ramshaahmedkhan</h6>
+                        <h6 class="text-dark text-center trending_text">wearing our</h6>
+                        <h6 class="text-dark text-center trending_text">Embroidered Cambric Shirt</h6>
+                    </div>
+                    <div class="col-3">
+                        <img src="styledBy/sby-saba.webp" class="d-block w-100 zoomed" alt="Image 8">
+                        <h6 class="text-dark trending_text text-center fw-bold mt-2">SABA SALEEM KHAN</h6>
+                        <h6 class="text-dark text-center trending_text">@_sabasaleem</h6>
+                        <h6 class="text-dark text-center trending_text">wearing our</h6>
+                        <h6 class="text-dark text-center trending_text">Embroidered Dobby Shirt</h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#imageCarousel4" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#imageCarousel4" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+    <div class="py-3 bg-white">
+        <span></span>
+    </div>
+    <footer>
+        <div class="footer container-fluid bg-dark py-4">
+            <div class="container text-white">
+                <div class="row">
+                    <div class="col-lg-3 col-md-4">
+                        <h6 class="fw-bold FH" data-bs-toggle="collapse" data-bs-target=".contactUs">CONTACT US</h6>
+                        <div class="contactUs collapse opacity-50">
+                            <p class="mb-1">
+                                <i class="bi bi-geo-alt-fill"></i> Sapphire Retail Head Office<br>
+                                1.5-Km, Defence Road, Bhobtian Chowk,<br>
+                                Off Raiwind Road, Opposite University of Lahore, Lahore.
+                            </p>
+                            <p class="mb-1">
+                                <i class="bi bi-envelope"></i> wecare@sapphireonline.pk
+                            </p>
+                            <p>
+                                <i class="bi bi-telephone"></i> +92(0)42-111-738-245
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-4 mt-2">
+                        <h6 class="fw-bold FH" data-bs-toggle="collapse" data-bs-target=".customerCare">CUSTOMER
+                            CARE
+                        </h6>
+                        <div class="customerCare collapse opacity-50">
+                            <ul class="list-unstyled">
+                                <li><a href="#" class="text-white text-decoration-none">Exchange & Return Policy</a>
+                                </li>
+                                <li><a href="#" class="text-white text-decoration-none">FAQs</a></li>
+                                <li><a href="#" class="text-white text-decoration-none">Contact Us</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-4 mt-2">
+                        <h6 class="fw-bold FH" data-bs-toggle="collapse" data-bs-target=".information">INFORMATION
+                        </h6>
+                        <div class="information collapse opacity-50">
+                            <ul class="list-unstyled">
+                                <li><a href="#" class="text-white text-decoration-none lh-1">About Us</a></li>
+                                <li><a href="#" class="text-white text-decoration-none lh-1">Privacy Policy</a></li>
+                                <li><a href="#" class="text-white text-decoration-none lh-1">SafePay Guide</a></li>
+                                <li><a href="#" class="text-white text-decoration-none lh-1">Payments</a></li>
+                                <li><a href="#" class="text-white text-decoration-none lh-1">Store Locator</a></li>
+                                <li><a href="#" class="text-white text-decoration-none lh-1">Fabric Glossary</a>
+                                </li>
+                                <li><a href="#" class="text-white text-decoration-none lh-1">Blogs</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-4 mt-2">
+                        <h6 class="fw-bold FH" data-bs-toggle="collapse" data-bs-target=".newsletter">NEWSLETTER
+                            SIGNUP
+                        </h6>
+                        <div class="newsletter collapse">
+                            <p class="opacity-50">Subscribe to our Newsletter for Exclusive Updates</p>
+                            <form class="input-group mb-3">
+                                <input type="email" class="form-control" placeholder="Your email address">
+                                <button class="btn btn-danger" type="submit">Subscribe</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid d-flexs m-lg-4 ">
+                <a href="https://www.facebook.com/sapphireofficial/"><i class="bi-facebook text-white m-2"
+                        id="FI1"></i></a>
+                <a href="https://www.instagram.com/sapphirepakistan/"><i class="bi-instagram text-white m-2 "
+                        id="FI2"></i></a>
+                <a href="https://www.youtube.com/channel/UCvMjM0BkK7SzlYnPTi5CBUQ"><i class="bi-youtube text-white m-2 "
+                        id="FI3"></i></a>
+            </div>
+        </div>
+    </footer>
+    <h6 class="text-dark text-center bg-white">© COPYRIGHT 2024 SAPPHIRE</h6>
+    <div class="d-flex align-items-center justify-content-center">
+        <img src="logogs_80587d78-218a-43ff-92d2-3b65e39da5f6_1.avif"
+        style="height: 25px;" alt="logo">
+    </div>
+    
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
+        </script>
+
+</body>
+
+</html>
