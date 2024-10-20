@@ -1,0 +1,454 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+}
+html{
+    scroll-behavior: smooth;
+}
+.header{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 2vh 5vw;
+    border-bottom: 1px solid black;
+    position: sticky;
+    top: 0;
+    background-color: white;
+    z-index: 1;
+}
+.header button{
+    background-color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.logo {
+    /* display: inline;
+    align-items: center; */
+    display: flex;
+    align-items: center;
+    flex: 1;  
+}
+.logo i{
+    font-size: 6vw;
+    margin: 2vw;
+}
+.logo h1{
+    font-size: 6vw;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    position: sticky;
+    top: 0;
+}
+.icons {
+    display: flex;
+    align-items: center;
+    position: sticky;
+    top: 0;
+}
+.icons i{
+    margin: 2vw;
+    transition: rgb(27, 153, 175)  1s ease;
+    /* background: linear-gradient(45deg,#73b9cc,#8ba0a7, #53aec4); /* Gradient colors */
+    /* -webkit-background-clip: text; 
+    background-clip: text; 
+    color: transparent;  */ 
+    position: sticky;
+    top: 0;
+    
+    
+}
+.search-bar {
+    width: 100%;
+    border: 0.5px solid black;
+    margin: 0.5rem auto;
+    border-radius: 10px;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+}
+
+.search-bar>input{
+    border: none;
+    width: 100%;
+    outline: none;
+}
+
+@media (min-width:481px) {
+    .logo i{
+        font-size: 4vw;
+    }
+  
+    .logo h1{
+            font-size: 7vw;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+    
+    .icons i{
+        font-size: 7vh;
+    }
+    .search-bar{
+        max-width: 100%;
+        padding: 1.5vh;
+        
+    }
+}
+
+
+@media screen and (min-width:769px) {
+    .logo i {
+        display: none;
+    }
+    .logo h1{
+        font-size: 5vw;
+    }
+    .icons i{
+        font-size: 5vh;
+    }
+    .search-bar{
+        max-width: 100%;
+        padding: 1.5vh;
+        
+    }
+}
+
+@media screen and (min-width:1200px) {
+    .header {
+        display: grid;
+        grid-template-columns: 1fr 2fr 1fr; /* Three columns */
+        align-items: center; /* Vertical alignment */
+        gap: 2vw; /* Add spacing between grid items */
+        padding: 0; /* Reduce padding to eliminate extra space */
+    }
+
+    .logo {
+        margin-left:2vw ;
+        grid-column: 1 / 2; 
+    }
+
+
+    .search-bar {
+        grid-column: 2 / 3; 
+        width: 100%;
+        margin-top: -15vh;
+        align-self: center; 
+    }
+    .icons {
+        grid-column: 3 / 4;
+        justify-content: space-evenly;
+    }
+
+    .logo h1{
+        font-size: 3vw;
+        font-weight: bolder;
+    }
+    .icons i{
+        font-size: 5vh;
+    }
+    .search-bar{
+        max-width: 85%;
+        padding: 1.5vh;
+        border-radius: 5px;
+        
+    }
+}
+
+.nav .cross{
+    width: 15%;
+    color: white;
+    margin-left: 3vw;
+    background-color: black;
+    border: none;
+    outline: none;
+    border-color: transparent;
+    border-radius: 5px;
+    padding: 2vh;
+    cursor: pointer;
+}
+
+.nav{
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    left: 0%;
+    height: 100%;
+    width: 80%;
+    border: black;
+    background-color: #f2f5f4;
+    z-index: 100;
+    transition: all 1s ease-in-out;
+   
+}
+nav ul li{
+    list-style: none;
+    margin: 3vh;
+    cursor: pointer;
+    
+}
+nav ul li a{
+    text-decoration: none;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: black;
+    translate: -2px -5px;
+}
+nav h5{
+    margin-left: 2vw;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: black;
+    font-size: 3vh;
+}
+
+
+nav ul div{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 2vh;
+    margin-top: 2vh;
+    padding: 2px;
+    width: 90%;
+    border: 1px solid black;
+    border-radius: 7px ; 
+}
+nav ul div input{
+    outline: none;
+    background-color: #f2f5f4;
+    padding: 2vh;
+    border: none;
+    border-radius: 7px;
+}
+nav div button{
+    width: 40%;
+    min-width: 30%;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+    background-color: black;
+    color: #f2f5f4;
+    border: none;
+    border-radius: 7px;
+    padding: 2vh;
+}
+nav div button:hover{
+    background-color: #35d7ff;
+    transition: 0.5s ease;
+    cursor: pointer;
+}
+.product-container{
+    position: static;
+    top: 100%;
+    margin: 2vh;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.product-container p{
+    font-size: 1.75vh;
+    transform: translateY(2);
+    font-weight: bold;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.product-container h5{
+    font-size: 2vh;
+    font-weight: lighter;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.product-container h6{
+    font-size: 2vh;
+    font-weight: lighter;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.product-item{
+    width: 50%;
+    margin-bottom: 20px;
+    padding: 1vh;
+    text-align:left;
+}
+@media screen and (min-width:769px) {
+    .product-item{
+        width: 25%;
+    }
+}
+.product-image{
+    width: 100%;
+    height: auto;
+}
+.footer{
+    display: block;
+    justify-content: flex-start;
+    padding: 2vw;
+    background-color: #f2f5f4;
+    
+}
+
+.footer summary{
+    font-size: 4vw;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: 1000;
+    padding: 2vh;  
+    transform: scaleX(1.1);
+    transform-origin: left;
+    display: block;
+    cursor: pointer; 
+}
+
+.footer p{
+    font-size: 3vw;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    list-style: none;
+    padding: 1vh;  
+    opacity: 0.7;
+}
+.footer a{
+    text-decoration: none;
+    color: black;
+}
+
+.newsletter div{
+    display: block;
+    width: 70%;
+    border: 1px solid black;
+    border-radius: 5px ;
+    margin-left: 15%;
+    margin-right: 15%;
+}
+.newsletter input{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    text-align: center;
+    margin-top: 1vh;
+    padding: 1vw;
+    border:none;
+    outline: none;
+    opacity: 1;
+    background-color: #f2f5f4;
+}
+
+.newsletter button{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+    background-color: black;
+    color: #f2f5f4;
+    border: none;
+    border-radius: 5px;
+    padding: 2vh;
+}
+.newsletter details div button:hover{
+    background-color: rgb(53, 215, 255);
+    transition: 0.5s ease;
+    cursor: pointer;
+}
+.newsletter details i{
+    margin: 2vw 2vh;
+}
+.fa-facebook-f:hover{
+    font-size: large;
+    margin-top: -1vh;
+    color: blue;
+    transition: 0.5s ease;
+}
+.fa-instagram:hover{
+    font-size: large;
+    margin-top: -1vh;
+    color: rgba(206, 38, 38, 0.938);
+    transition: 0.5s ease;
+}
+.fa-youtube:hover{
+    font-size: large;
+    margin-top: -1vh;
+    color: red;
+    transition: 0.5s ease;
+}
+@media (min-width: 481px) {
+    .footer summary {
+        font-size: 3vw;
+    }
+    .footer p {
+        font-size: 2.5vw;
+    }
+    .newsletter div {
+        width: 80%;
+        margin-left: 10%;
+        margin-right: 10%;
+    }
+}
+
+/* Screen size min-width: 768px */
+@media (min-width: 768px) {
+    .footer summary {
+        font-size: 2.5vw;
+    }
+    .footer p {
+        font-size: 2vw;
+    }
+    .newsletter div {
+        width: 70%;
+        margin-left: 15%;
+        margin-right: 15%;
+    }
+}
+@media (min-width: 1200px) {
+    .footer {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        padding: 4vw;
+        gap: 20px;
+    }
+    .contact-us,
+    .customer-care,
+    .information,
+    .newsletter {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .footer summary {
+        display: block;
+        font-size: medium;
+    }
+    .footer p {
+        font-size: 1vw;
+    }
+    .newsletter div {
+        width: 100%;
+        margin-left: 0;
+    }
+}
+
+/* Screen size min-width: 1400px */
+@media (min-width: 1400px) {
+    .footer {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        padding: 4vw;
+        gap: 20px;
+    }
+    .contact-us,
+    .customer-care,
+    .information,
+    .newsletter {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .footer summary {
+        display: block; 
+    }
+    .footer p {
+        font-size: 1.3vw;
+    }
+    .newsletter div {
+        width: 40%;
+        margin-left: 30%;
+        margin-right: 30%;
+    }
+}
