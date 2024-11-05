@@ -1,12 +1,10 @@
-document.addEventListener("DOMContentLoaded", function() {
-    var profileImage = document.getElementById("profile_image");
-    var imgIntroduction = document.querySelector(".img-introduction");
+var profile_image = document.getElementById("profile_image");
+var img_introduction = document.getElementsById("img-introduction");
 
-    profileImage.addEventListener("mouseover", function() {
-        imgIntroduction.style.display = "block";
-    });
+profile_image.addEventListener("mouseover", () => {
+    img_introduction.style.display = "block";
+});
 
-    profileImage.addEventListener("mouseout", function() {
-        imgIntroduction.style.display = "none";
-    });
+profile_image.addEventListener("mouseout", () => {
+    img_introduction.style.display = "none";
 });
