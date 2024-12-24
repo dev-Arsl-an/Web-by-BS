@@ -1,0 +1,39 @@
+<h3 style="display: flex; justify-content: center; margin-bottom: 10px; color: #4A90E2; font-weight: bold;">
+    <%= category %>
+</h3>
+<table class="table table-hover table-striped text-center">
+    <thead style="background-color: #f4f4f4;">
+        <tr>
+            <th style="width: 10%;">_id</th>
+            <th style="width: 15%;">Title</th>
+            <th style="width: 25%;">Description</th>
+            <th style="width: 10%;">Price</th>
+            <th style="width: 15%;">Image</th>
+            <th style="width: 25%;">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% for (let index = 0; index < products.length; index++) { %>
+            <tr>
+                <td><%= products[index]._id %></td>
+                <td><%= products[index].title %></td>
+                <td><%= products[index].description %></td>
+                <td>$<%= products[index].price.toFixed(2) %></td>
+                <td>
+                    <img src="/<%= products[index].image %>" alt="Product Image" 
+                         style="width: 60px; height: auto; border-radius: 5px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
+                </td>
+                <td>
+                    <a href="/admin/edit/<%= products[index]._id %>" class="btn btn-info me-2"
+                        style="background: linear-gradient(45deg, #6a11cb, #2575fc); border: none; color: white;">
+                        <i class="fas fa-edit"></i> Edit
+                    </a>
+                    <a href="/admin/delete/<%= products[index]._id %>" class="btn btn-danger"
+                        style="background: linear-gradient(45deg, #ff416c, #ff4b2b); border: none; color: white;">
+                        <i class="fas fa-trash"></i> Delete
+                    </a>
+                </td>
+            </tr>
+        <% } %>
+    </tbody>
+</table>

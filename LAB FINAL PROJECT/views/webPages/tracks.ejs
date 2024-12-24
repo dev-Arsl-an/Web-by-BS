@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orders Table</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+
+        .table-container {
+            margin: 20px auto;
+            max-width: 95%;
+        }
+
+        .status-dropdown {
+            min-width: 150px;
+        }
+    </style>
+    </style>
+</head>
+
+<body>
+    <div class="container table-container">
+        <h1 class="text-center mb-4">Orders</h1>
+        <table class="table table-striped table-hover">
+            <thead class="table-dark">
+                <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Email</th>
+                    <th>Address</th>
+                    <th>City</th>
+                    <th>State</th>
+                    <th>Zip Code</th>
+                    <th>Payment Method</th>
+                    <th>Order Date</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% if (orders && orders.length> 0) { %>
+                    <% orders.forEach(order=> { %>
+                        <tr>
+                            <td>
+                                <%= order.firstName %>
+                            </td>
+                            <td>
+                                <%= order.lastName %>
+                            </td>
+                            <td>
+                                <%= order.email %>
+                            </td>
+                            <td>
+                                <%= order.address %>
+                            </td>
+                            <td>
+                                <%= order.city %>
+                            </td>
+                            <td>
+                                <%= order.state %>
+                            </td>
+                            <td>
+                                <%= order.zipCode %>
+                            </td>
+                            <td>
+                                <%= order.paymentMethod %>
+                            </td>
+                            <td>
+                                <%= new Date(order.createdAt).toLocaleDateString() %>
+                            </td>
+                            <td>
+                                <select class="form-select">
+                                    <option <%=order.status==='Processing' ? 'selected' : '' %>>Processing</option>
+                                    <option <%=order.status==='Shipped' ? 'selected' : '' %>>Shipped</option>
+                                    <option <%=order.status==='Delivered' ? 'selected' : '' %>>Delivered</option>
+                                    <option <%=order.status==='Cancelled' ? 'selected' : '' %>>Cancelled</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <% }) %>
+                            <% } else { %>
+                                <tr>
+                                    <td colspan="10" class="text-center">No orders found.</td>
+                                </tr>
+                                <% } %>
+            </tbody>
+        </table>
+    </div>
+</body>
+
+</html>
