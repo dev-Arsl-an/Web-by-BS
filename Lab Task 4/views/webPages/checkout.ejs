@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sapphire Checkout</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+
+    <link rel="icon" type="image" href="/images/new.png">
+    <link rel="stylesheet" href="/CSS/myStyles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #7b2cbf;
+            --secondary-color: #9d4edd;
+            --accent-color: #e0aaff;
+            --dark-bg: #1a1a1a;
+            --card-bg: #2d2d2d;
+        }
+
+        body {
+            background: linear-gradient(135deg, var(--dark-bg) 0%, #2d2d2d 100%);
+            min-height: 100vh;
+            color: #fff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .checkout-container {
+            margin: 40px auto;
+            max-width: 1200px;
+            padding: 30px;
+            background: rgba(45, 45, 45, 0.9);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            animation: slideIn 0.8s ease-out;
+        }
+
+        .checkout-header {
+            border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+
+        .checkout-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-align: center;
+            background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 0;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+            position: relative;
+        }
+
+        .form-label {
+            font-weight: 600;
+            color: var(--accent-color);
+            margin-bottom: 10px;
+        }
+
+        .form-control {
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 12px;
+            color: #fff;
+            transition: all 0.3s ease;
+        }
+
+        .form-control:focus {
+            background: rgba(255, 255, 255, 0.15);
+            border-color: var(--primary-color);
+            box-shadow: 0 0 15px rgba(123, 44, 191, 0.3);
+        }
+
+        .payment-icons {
+            position: absolute;
+            right: 15px;
+            top: 45px;
+            font-size: 24px;
+        }
+
+        .payment-icon {
+            margin-left: 10px;
+            opacity: 0.3;
+            transition: all 0.3s ease;
+        }
+
+        .payment-icon.active {
+            opacity: 1;
+            transform: scale(1.2);
+        }
+
+        .btn-submit {
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 15px 30px;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            letter-spacing: 1px;
+            border: none;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        .btn-submit:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(123, 44, 191, 0.4);
+        }
+
+        .order-summary {
+            background: linear-gradient(135deg, rgba(123, 44, 191, 0.2), rgba(157, 78, 221, 0.2));
+            padding: 25px;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            margin-bottom: 30px;
+        }
+
+        .summary-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .summary-total {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--accent-color);
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .payment-method-container {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        .payment-option {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .payment-option:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: var(--primary-color);
+        }
+
+        .payment-option.selected {
+            border-color: var(--accent-color);
+            background: rgba(123, 44, 191, 0.2);
+        }
+
+        .payment-option i {
+            font-size: 24px;
+            margin-right: 15px;
+            color: var(--accent-color);
+        }
+
+        #cardDetails {
+            display: none;
+            margin-top: 20px;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        .section-title {
+            color: var(--accent-color);
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="checkout-container">
+        <div class="checkout-header">
+            <h1 class="checkout-title">✨ Secure Checkout ✨</h1>
+        </div>
+
+        <div class="row">
+            <!-- Order Summary -->
+            <div class="col-md-4 mb-4">
+                <div class="order-summary">
+                    <h3 class="section-title">Order Summary</h3>
+                    <div class="summary-item">
+                        <span>Subtotal</span>
+                        <span>$<%= total.toFixed(2) %></span>
+                        <input type="hidden" name="subtotal" value="<%= total.toFixed(2) %>">
+                    </div>
+                    <div class="summary-item">
+                        <span>Shipping</span>
+                        <span>$<%= shipping || '0.00' %></span>
+                        <input type="hidden" name="shipping" value="<%= shipping || '0.00' %>">
+                    </div>
+                    <div class="summary-item">
+                        <span>Tax</span>
+                        <span>$<%= tax || '0.00' %></span>
+                        <input type="hidden" name="tax" value="<%= tax || '0.00' %>">
+                    </div>
+                    <div class="summary-total">
+                        <span>Total</span>
+                        <span>$<%= (total + (shipping || 0) + (tax || 0)).toFixed(2) %></span>
+                        <input type="hidden" name="total"
+                            value="<%= (total + (shipping || 0) + (tax || 0)).toFixed(2) %>">
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Checkout Form -->
+            <div class="col-md-8">
+                <form id="checkoutForm" action="/process-checkout" method="POST">
+                    <h3 class="section-title">Personal Information</h3>
+                    <div class="row">
+                        <div class="col-md-6 form-group">
+                            <label class="form-label">First Name</label>
+                            <input type="text" class="form-control" name="firstName" required>
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label class="form-label">Last Name</label>
+                            <input type="text" class="form-control" name="lastName" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Email</label>
+                        <input type="email" class="form-control" name="email" required>
+                    </div>
+
+                    <h3 class="section-title">Shipping Address</h3>
+                    <div class="form-group">
+                        <label class="form-label">Street Address</label>
+                        <input type="text" class="form-control" name="address" required>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6 form-group">
+                            <label class="form-label">City</label>
+                            <input type="text" class="form-control" name="city" required>
+                        </div>
+                        <div class="col-md-3 form-group">
+                            <label class="form-label">State</label>
+                            <input type="text" class="form-control" name="state" required>
+                        </div>
+                        <div class="col-md-3 form-group">
+                            <label class="form-label">ZIP Code</label>
+                            <input type="text" class="form-control" name="zipCode" required>
+                        </div>
+                    </div>
+
+                    <!-- Hidden Inputs for Order Summary -->
+                    <input type="hidden" name="subtotal" value="<%= total.toFixed(2) %>">
+                    <input type="hidden" name="shipping" value="<%= shipping || '0.00' %>">
+                    <input type="hidden" name="tax" value="<%= tax || '0.00' %>">
+                    <input type="hidden" name="total" value="<%= (total + (shipping || 0) + (tax || 0)).toFixed(2) %>">
+
+                    <h3 class="section-title">Payment Method</h3>
+                    <div class="payment-method-container">
+                        <input type="hidden" name="paymentMethod" id="paymentMethod">
+                        <div class="payment-option" data-method="card" onclick="selectPaymentMethod('card')">
+                            <i class="fas fa-credit-card"></i>
+                            <span>Credit/Debit Card</span>
+                        </div>
+                        <div class="payment-option" data-method="paypal" onclick="selectPaymentMethod('paypal')">
+                            <i class="fab fa-paypal"></i>
+                            <span>PayPal</span>
+                        </div>
+                        <div class="payment-option" data-method="cod" onclick="selectPaymentMethod('cod')">
+                            <i class="fas fa-money-bill-wave"></i>
+                            <span>Cash on Delivery</span>
+                        </div>
+                    </div>
+
+
+                    <div id="cardDetails">
+                        <div class="form-group">
+                            <label class="form-label">Card Number</label>
+                            <input type="text" class="form-control" id="cardNumber" placeholder="1234 5678 9012 3456">
+                            <div class="payment-icons">
+                                <i class="fab fa-cc-visa payment-icon" data-card="visa"></i>
+                                <i class="fab fa-cc-mastercard payment-icon" data-card="mastercard"></i>
+                                <i class="fab fa-cc-amex payment-icon" data-card="amex"></i>
+                                <i class="fab fa-cc-discover payment-icon" data-card="discover"></i>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6 form-group">
+                                <label class="form-label">Expiration Date</label>
+                                <input type="text" class="form-control" placeholder="MM/YY">
+                            </div>
+                            <div class="col-md-6 form-group">
+                                <label class="form-label">CVV</label>
+                                <input type="text" class="form-control" placeholder="123">
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-submit">
+                        <i class="fas fa-lock"></i> Complete Purchase
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Payment method selection
+        document.querySelectorAll('.payment-option').forEach(option => {
+            option.addEventListener('click', function () {
+                // Remove selected class from all options
+                document.querySelectorAll('.payment-option').forEach(opt => {
+                    opt.classList.remove('selected');
+                });
+
+                // Add selected class to clicked option
+                this.classList.add('selected');
+
+                // Show/hide card details based on selection
+                const cardDetails = document.getElementById('cardDetails');
+                if (this.dataset.method === 'card') {
+                    cardDetails.style.display = 'block';
+                } else {
+                    cardDetails.style.display = 'none';
+                }
+            });
+        });
+
+        function selectPaymentMethod(method) {
+            document.getElementById('paymentMethod').value = method;
+
+            // Add visual feedback for the selected option (optional)
+            const options = document.querySelectorAll('.payment-option');
+            options.forEach(option => option.classList.remove('selected'));
+            document.querySelector(`[data-method="${method}"]`).classList.add('selected');
+        }
+
+        // Card type detection
+        document.getElementById('cardNumber').addEventListener('input', function (e) {
+            let number = e.target.value;
+
+            // Reset all icons
+            document.querySelectorAll('.payment-icon').forEach(icon => {
+                icon.classList.remove('active');
+            });
+
+            // Detect card type based on first digits
+            if (number.startsWith('4')) {
+                document.querySelector('[data-card="visa"]').classList.add('active');
+            } else if (number.startsWith('5')) {
+                document.querySelector('[data-card="mastercard"]').classList.add('active');
+            } else if (number.startsWith('34') || number.startsWith('37')) {
+                document.querySelector('[data-card="amex"]').classList.add('active');
+            } else if (number.startsWith('6')) {
+                document.querySelector('[data-card="discover"]').classList.add('active');
+            }
+        });
+
+        // Format card number input
+        document.getElementById('cardNumber').addEventListener('input', function (e) {
+            let value = e.target.value.replace(/\D/g, '');
+            let formatted = '';
+
+            for (let i = 0; i < value.length; i++) {
+                if (i > 0 && i % 4 === 0) {
+                    formatted += ' ';
+                }
+                formatted += value[i];
+            }
+
+            e.target.value = formatted.slice(0, 19);
+        });
+    </script>
+</body>
+
+</html>

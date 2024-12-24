@@ -1,0 +1,77 @@
+<body>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card-form shadow p-4 rounded" style="background-color: #f9f9f9;">
+                    <h2 class="text-center mb-4" style="color: #4A90E2;">
+                        <i class="fas fa-box-open me-2"></i>Edit Category
+                    </h2>
+                    <form method="post" enctype="multipart/form-data">
+                        <!-- Product Title -->
+                        <div class="mb-3">
+                            <label for="productTitle" class="form-label" style="color: #333;">
+                                <i class="fas fa-tag me-2"></i>Product Title
+                            </label>
+                            <input type="text" id="productTitle" name="title" class="form-control" required
+                                placeholder="Enter product name" value="<%= products.title %>">
+                        </div>
+
+                        <!-- Description -->
+                        <div class="mb-3">
+                            <label for="productDescription" class="form-label" style="color: #333;">
+                                <i class="fas fa-comment-dots me-2"></i>Description
+                            </label>
+                            <textarea id="productDescription" name="description" class="form-control" rows="4" required
+                                placeholder="Provide a detailed product description"><%= products.description %></textarea>
+                        </div>
+
+                        <!-- Price -->
+                        <div class="mb-3">
+                            <label for="productPrice" class="form-label" style="color: #333;">
+                                <i class="fas fa-dollar-sign me-2"></i>Price
+                            </label>
+                            <div class="input-group">
+                                <input type="number" id="productPrice" name="price" class="form-control" required
+                                    min="0" placeholder="0.00" value="<%= products.price %>">
+                            </div>
+                        </div>
+
+                        <!-- Image Display and Upload -->
+                        <div class="mb-3">
+                            <label for="productImage" class="form-label" style="color: #333;">
+                                <i class="fas fa-image me-2"></i>Product Image
+                            </label>
+                            <div class="mb-2">
+                                <img src="/<%= products.image %>" alt="Current Product Image"
+                                    style="max-width: 100px; border-radius: 5px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
+                                <p class="text-muted small mt-1">Current Image</p>
+                            </div>
+                            <input type="file" id="productImage" name="image" class="form-control" accept="image/*">
+                        </div>
+
+                        <!-- Category Dropdown -->
+                        <div class="mb-3">
+                            <label for="productCategory" class="form-label" style="color: #333;">
+                                <i class="fas fa-list-alt me-2"></i>Category
+                            </label>
+                            <select id="productCategory" name="category" class="form-select" required>
+                                <option value="MEN" <% if (products.category === 'MEN') { %> selected <% } %>>Men</option>
+                                <option value="WOMEN" <% if (products.category === 'WOMEN') { %> selected <% } %>>Women</option>
+                                <option value="KIDS" <% if (products.category === 'KIDS') { %> selected <% } %>>Kids</option>
+                                <option value="ACCESSORIES" <% if (products.category === 'ACCESSORIES') { %> selected <% } %>>Accessories</option>
+                            </select>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-primary w-100"
+                                style="background: linear-gradient(45deg, #6a11cb, #2575fc); border: none; color: white; font-weight: bold; border-radius: 30px;">
+                                <i class="fas fa-edit me-2"></i>Update Product
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
