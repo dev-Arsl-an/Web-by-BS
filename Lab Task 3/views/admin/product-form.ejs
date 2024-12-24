@@ -1,0 +1,163 @@
+<body>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card-form" style="box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); padding: 20px; border-radius: 10px; background-color: #ffffff;">
+                    <h2 class="text-center mb-4" style="color: #4A90E2; font-weight: bold;">
+                        <i class="fas fa-box-open me-2"></i>Add New Product
+                    </h2>
+                    <form method="post" enctype="multipart/form-data">
+                        <!-- Product Title Dropdown -->
+                        <div class="mb-3">
+                            <label for="productTitle" class="form-label" style="font-weight: bold;">
+                                <i class="fas fa-tag me-2"></i>Product Title
+                            </label>
+                            <select id="productTitle" name="title" class="form-select" required>
+                                <option value="" disabled selected>Select a product title</option>
+                                <option>2 Piece - Embroidered Khaddar Suit</option>
+                                <option>2 Piece - Embroidered Cambric Suit</option>
+                                <option>3 Piece - Embroidered Khaddar Suit</option>
+                                <option>3 Piece - Embroidered Karandi Suit</option>
+                                <option>3 Piece - Embroidered Jacquard Suit</option>
+                                <option>3 Piece - Embroidered Cotton Jacquard Suit</option>
+                                <option>3 Piece - Embroidered Cambric Suit</option>
+                                <option>2 Piece - Printed Khaddar Suit</option>
+                                <option>2 Piece - Embroidered Zari Khaddar Suit</option>
+                                <option>Printed Light Khaddar Suit</option>
+                                <option>Embroidered Raw Silk Waistcoat</option>
+                                <option>Light Khaddar Suit</option>
+                                <option>Wash & Wear Suit</option>
+                                <option>Wool Blended Suit</option>
+                                <option>Embroidered Wash & Wear Suit</option>
+                                <option>Embroidered Cotton Dobby Suit</option>
+                                <option>Premium Wash & Wear Suit</option>
+                                <option>Embroidered Tropical Fabric Waistcoat</option>
+                                <option>2 Piece - Printed Raw Silk Suit</option>
+                                <option>Cambric Suit</option>
+                                <option>Embroidered Jacquard Waistcoat</option>
+                                <option>Embroidered Velvet Kaftan</option>
+                                <option>Printed Cotton Satin Top</option>
+                                <option>Off White Mules</option>
+                                <option>Black Faux Leather Pumps</option>
+                                <option>Brown Faux Leather Pumps</option>
+                                <option>Black Top Handle Bag</option>
+                                <option>Green Faux Leather Pumps</option>
+                                <option>Black Tote Bag</option>
+                                <option>Embellished Clutch</option>
+                                <!-- New Titles -->
+                                <option>WILD ROSE</option>
+                                <option>Velvet Rose</option>
+                                <option>Illusion</option>
+                                <option>Icon</option>
+                                <option>Pleasure</option>
+                                <option>Bohemia</option>
+                                <option>Impulse</option>
+                                <option>Charm</option>
+                                <option>Dream</option>
+                                <option>Dusk</option>
+                                <option>Fierce</option>
+                                <option>Bella</option>
+                                <option>Allure</option>
+                                <option>Gravity</option>
+                                <option>Obsidian</option>
+                            </select>
+                            <div class="invalid-feedback">
+                                Please select a product title.
+                            </div>
+                        </div>
+
+                        <!-- Product Description Dropdown -->
+                        <div class="mb-3">
+                            <label for="productDescription" class="form-label" style="font-weight: bold;">
+                                <i class="fas fa-comment-dots me-2"></i>Description
+                            </label>
+                            <select id="productDescription" name="description" class="form-select">
+                                <option value="" disabled selected>Select a description</option>
+                                <option>RTW Winter - New Arrivals</option>
+                                <option>Limited Edition - New Arrivals</option>
+                                <option>RTW Festive - New Arrivals</option>
+                                <option>Men's Stitched Limited Edition</option>
+                                <option>Men's Stitched Winter '24</option>
+                                <option>Men’s Unstitched Winter ‘24</option>
+                                <option>Festive ‘24</option>
+                                <option>Winter ‘24</option>
+                                <option>Fall / Winter ‘24</option>
+                                <!-- New Descriptions -->
+                                <option>Men's Perfume</option>
+                                <option>Women’s Body Mist</option>
+                                <option>Women's Perfume</option>
+                                <option>For Him</option>
+                                <option>For Her</option>
+                            </select>
+                            <div class="invalid-feedback">
+                                Please select a product description.
+                            </div>
+                        </div>
+
+                        <!-- Price -->
+                        <div class="mb-3">
+                            <label for="productPrice" class="form-label" style="font-weight: bold;">
+                                <i class="fas fa-dollar-sign me-2"></i>Price
+                            </label>
+                            <div class="input-group">
+                                <input type="number" id="productPrice" name="price" class="form-control" required min="0" placeholder="0.00">
+                            </div>
+                            <div class="invalid-feedback">
+                                Please enter a valid price.
+                            </div>
+                        </div>
+
+                        <!-- Image Upload -->
+                        <div class="mb-3">
+                            <label for="productImage" class="form-label" style="font-weight: bold;">
+                                <i class="fas fa-image me-2"></i>Product Image
+                            </label>
+                            <input type="file" id="productImage" name="image" class="form-control" accept="image/*" required>
+                            <div class="invalid-feedback">
+                                Please upload a product image.
+                            </div>
+                        </div>
+
+                        <!-- Category Dropdown -->
+                        <div class="mb-3">
+                            <label for="productCategory" class="form-label" style="font-weight: bold;">
+                                <i class="fas fa-list me-2"></i>Category
+                            </label>
+                            <select id="productCategory" name="category" class="form-select" required>
+                                <option value="" disabled selected>Select a category</option>
+                                <option value="MEN">Men</option>
+                                <option value="WOMEN">Women</option>
+                                <option value="KIDS">Kids</option>
+                                <option value="ACCESSORIES">Accessories</option>
+                                <option value="BEAUTY">Beauty</option>
+                            </select>
+                            <div class="invalid-feedback">
+                                Please select a product category.
+                            </div>
+                        </div>
+
+                        <!-- Featured Product -->
+                        <div class="mb-3">
+                            <label class="form-label" style="font-weight: bold;">
+                                <i class="fas fa-star me-2"></i>Featured Product
+                            </label>
+                            <div class="d-flex">
+                                <div class="form-check me-3">
+                                    <input type="checkbox" id="featuredYes" name="isFeatured" class="form-check-input">
+                                    <label class="form-check-label" for="featuredYes">isFeatured</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-info w-100" style="background: linear-gradient(45deg, #6a11cb, #2575fc); border: none; color: white; padding: 10px 20px; border-radius: 5px;">
+                                <i class="fas fa-plus me-2"></i>Add Product
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>

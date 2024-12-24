@@ -1,0 +1,164 @@
+<body>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card-form" style="box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); padding: 20px; border-radius: 10px; background-color: #ffffff;">
+                    <h2 class="text-center mb-4" style="color: #4A90E2; font-weight: bold;">
+                        <i class="fas fa-box-open me-2"></i>Edit Product
+                    </h2>
+                    <form method="post" enctype="multipart/form-data">
+                        <input type="hidden" name="productId" id="productId" value="<%= product._id %>">
+
+                        <!-- Product Title Dropdown -->
+                        <div class="mb-3">
+                            <label for="productTitle" class="form-label" style="font-weight: bold;">
+                                <i class="fas fa-tag me-2"></i>Product Title
+                            </label>
+                            <select id="productTitle" name="title" class="form-select" required>
+                                <option value="" disabled>Select a product title</option>
+                                <option value="2 Piece - Embroidered Khaddar Suit" <%= product.title === '2 Piece - Embroidered Khaddar Suit' ? 'selected' : '' %>>2 Piece - Embroidered Khaddar Suit</option>
+                                <option value="2 Piece - Embroidered Cambric Suit" <%= product.title === '2 Piece - Embroidered Cambric Suit' ? 'selected' : '' %>>2 Piece - Embroidered Cambric Suit</option>
+                                <option value="3 Piece - Embroidered Khaddar Suit" <%= product.title === '3 Piece - Embroidered Khaddar Suit' ? 'selected' : '' %>>3 Piece - Embroidered Khaddar Suit</option>
+                                <option value="3 Piece - Embroidered Karandi Suit" <%= product.title === '3 Piece - Embroidered Karandi Suit' ? 'selected' : '' %>>3 Piece - Embroidered Karandi Suit</option>
+                                <option value="3 Piece - Embroidered Jacquard Suit" <%= product.title === '3 Piece - Embroidered Jacquard Suit' ? 'selected' : '' %>>3 Piece - Embroidered Jacquard Suit</option>
+                                <option value="3 Piece - Embroidered Cotton Jacquard Suit" <%= product.title === '3 Piece - Embroidered Cotton Jacquard Suit' ? 'selected' : '' %>>3 Piece - Embroidered Cotton Jacquard Suit</option>
+                                <option value="3 Piece - Embroidered Cambric Suit" <%= product.title === '3 Piece - Embroidered Cambric Suit' ? 'selected' : '' %>>3 Piece - Embroidered Cambric Suit</option>
+                                <option value="2 Piece - Printed Khaddar Suit" <%= product.title === '2 Piece - Printed Khaddar Suit' ? 'selected' : '' %>>2 Piece - Printed Khaddar Suit</option>
+                                <option value="2 Piece - Embroidered Zari Khaddar Suit" <%= product.title === '2 Piece - Embroidered Zari Khaddar Suit' ? 'selected' : '' %>>2 Piece - Embroidered Zari Khaddar Suit</option>
+                                <option value="Printed Light Khaddar Suit" <%= product.title === 'Printed Light Khaddar Suit' ? 'selected' : '' %>>Printed Light Khaddar Suit</option>
+                                <option value="Embroidered Raw Silk Waistcoat" <%= product.title === 'Embroidered Raw Silk Waistcoat' ? 'selected' : '' %>>Embroidered Raw Silk Waistcoat</option>
+                                <option value="Light Khaddar Suit" <%= product.title === 'Light Khaddar Suit' ? 'selected' : '' %>>Light Khaddar Suit</option>
+                                <option value="Wash & Wear Suit" <%= product.title === 'Wash & Wear Suit' ? 'selected' : '' %>>Wash & Wear Suit</option>
+                                <option value="Wool Blended Suit" <%= product.title === 'Wool Blended Suit' ? 'selected' : '' %>>Wool Blended Suit</option>
+                                <option value="Embroidered Wash & Wear Suit" <%= product.title === 'Embroidered Wash & Wear Suit' ? 'selected' : '' %>>Embroidered Wash & Wear Suit</option>
+                                <option value="Embroidered Cotton Dobby Suit" <%= product.title === 'Embroidered Cotton Dobby Suit' ? 'selected' : '' %>>Embroidered Cotton Dobby Suit</option>
+                                <option value="Premium Wash & Wear Suit" <%= product.title === 'Premium Wash & Wear Suit' ? 'selected' : '' %>>Premium Wash & Wear Suit</option>
+                                <option value="Embroidered Tropical Fabric Waistcoat" <%= product.title === 'Embroidered Tropical Fabric Waistcoat' ? 'selected' : '' %>>Embroidered Tropical Fabric Waistcoat</option>
+                                <option value="2 Piece - Printed Raw Silk Suit" <%= product.title === '2 Piece - Printed Raw Silk Suit' ? 'selected' : '' %>>2 Piece - Printed Raw Silk Suit</option>
+                                <option value="Cambric Suit" <%= product.title === 'Cambric Suit' ? 'selected' : '' %>>Cambric Suit</option>
+                                <option value="Embroidered Jacquard Waistcoat" <%= product.title === 'Embroidered Jacquard Waistcoat' ? 'selected' : '' %>>Embroidered Jacquard Waistcoat</option>
+                                <option value="Embroidered Velvet Kaftan" <%= product.title === 'Embroidered Velvet Kaftan' ? 'selected' : '' %>>Embroidered Velvet Kaftan</option>
+                                <option value="Printed Cotton Satin Top" <%= product.title === 'Printed Cotton Satin Top' ? 'selected' : '' %>>Printed Cotton Satin Top</option>
+                                <option value="Off White Mules" <%= product.title === 'Off White Mules' ? 'selected' : '' %>>Off White Mules</option>
+                                <option value="Black Faux Leather Pumps" <%= product.title === 'Black Faux Leather Pumps' ? 'selected' : '' %>>Black Faux Leather Pumps</option>
+                                <option value="Brown Faux Leather Pumps" <%= product.title === 'Brown Faux Leather Pumps' ? 'selected' : '' %>>Brown Faux Leather Pumps</option>
+                                <option value="Black Top Handle Bag" <%= product.title === 'Black Top Handle Bag' ? 'selected' : '' %>>Black Top Handle Bag</option>
+                                <option value="Green Faux Leather Pumps" <%= product.title === 'Green Faux Leather Pumps' ? 'selected' : '' %>>Green Faux Leather Pumps</option>
+                                <option value="Black Tote Bag" <%= product.title === 'Black Tote Bag' ? 'selected' : '' %>>Black Tote Bag</option>
+                                <option value="Embellished Clutch" <%= product.title === 'Embellished Clutch' ? 'selected' : '' %>>Embellished Clutch</option>
+                                <!-- Perfume Titles -->
+                                <option value="WILD ROSE" <%= product.title === 'WILD ROSE' ? 'selected' : '' %>>WILD ROSE</option>
+                                <option value="Velvet Rose" <%= product.title === 'Velvet Rose' ? 'selected' : '' %>>Velvet Rose</option>
+                                <option value="Illusion" <%= product.title === 'Illusion' ? 'selected' : '' %>>Illusion</option>
+                                <option value="Icon" <%= product.title === 'Icon' ? 'selected' : '' %>>Icon</option>
+                                <option value="Pleasure" <%= product.title === 'Pleasure' ? 'selected' : '' %>>Pleasure</option>
+                                <option value="Bohemia" <%= product.title === 'Bohemia' ? 'selected' : '' %>>Bohemia</option>
+                                <option value="Impulse" <%= product.title === 'Impulse' ? 'selected' : '' %>>Impulse</option>
+                                <option value="Charm" <%= product.title === 'Charm' ? 'selected' : '' %>>Charm</option>
+                                <option value="Dream" <%= product.title === 'Dream' ? 'selected' : '' %>>Dream</option>
+                                <option value="Dusk" <%= product.title === 'Dusk' ? 'selected' : '' %>>Dusk</option>
+                                <option value="Fierce" <%= product.title === 'Fierce' ? 'selected' : '' %>>Fierce</option>
+                                <option value="Bella" <%= product.title === 'Bella' ? 'selected' : '' %>>Bella</option>
+                                <option value="Allure" <%= product.title === 'Allure' ? 'selected' : '' %>>Allure</option>
+                                <option value="Gravity" <%= product.title === 'Gravity' ? 'selected' : '' %>>Gravity</option>
+                                <option value="Obsidian" <%= product.title === 'Obsidian' ? 'selected' : '' %>>Obsidian</option>
+                            </select>
+                            <div class="invalid-feedback">
+                                Please select a valid product title.
+                            </div>
+                        </div>
+
+                        <!-- Product Description Dropdown -->
+                        <div class="mb-3">
+                            <label for="productDescription" class="form-label" style="font-weight: bold;">
+                                <i class="fas fa-comment-dots me-2"></i>Description
+                            </label>
+                            <select id="productDescription" name="description" class="form-select">
+                                <option value="" disabled>Select a description</option>
+                                <option value="RTW Winter - New Arrivals" <%= product.description === 'RTW Winter - New Arrivals' ? 'selected' : '' %>>RTW Winter - New Arrivals</option>
+                                <option value="Limited Edition - New Arrivals" <%= product.description === 'Limited Edition - New Arrivals' ? 'selected' : '' %>>Limited Edition - New Arrivals</option>
+                                <option value="RTW Festive - New Arrivals" <%= product.description === 'RTW Festive - New Arrivals' ? 'selected' : '' %>>RTW Festive - New Arrivals</option>
+                                <option value="Men's Stitched Limited Edition" <%= product.description === "Men's Stitched Limited Edition" ? 'selected' : '' %>>Men's Stitched Limited Edition</option>
+                                <option value="Men's Stitched Winter '24" <%= product.description === "Men's Stitched Winter '24" ? 'selected' : '' %>>Men's Stitched Winter '24</option>
+                                <option value="Men's Unstitched Winter '24" <%= product.description === "Men's Unstitched Winter '24" ? 'selected' : '' %>>Men's Unstitched Winter '24</option>
+                                <option value="Festive '24" <%= product.description === "Festive '24" ? 'selected' : '' %>>Festive '24</option>
+                                <option value="Winter '24" <%= product.description === "Winter '24" ? 'selected' : '' %>>Winter '24</option>
+                                <option value="Fall / Winter '24" <%= product.description === "Fall / Winter '24" ? 'selected' : '' %>>Fall / Winter '24</option>
+                                <!-- Perfume Descriptions -->
+                                <option value="Men's Perfume" <%= product.description === "Men's Perfume" ? 'selected' : '' %>>Men's Perfume</option>
+                                <option value="Women's Body Mist" <%= product.description === "Women's Body Mist" ? 'selected' : '' %>>Women's Body Mist</option>
+                                <option value="Women's Perfume" <%= product.description === "Women's Perfume" ? 'selected' : '' %>>Women's Perfume</option>
+                                <option value="For Him" <%= product.description === "For Him" ? 'selected' : '' %>>For Him</option>
+                                <option value="For Her" <%= product.description === "For Her" ? 'selected' : '' %>>For Her</option>
+                            </select>
+                            <div class="invalid-feedback">
+                                Please select a description.
+                            </div>
+                        </div>
+
+                        <!-- Rest of the form remains the same -->
+                        <div class="mb-3">
+                            <label for="productPrice" class="form-label" style="font-weight: bold;">
+                                <i class="fas fa-dollar-sign me-2"></i>Price
+                            </label>
+                            <div class="input-group">
+                                <input type="number" id="productPrice" name="price" class="form-control" required min="0" value="<%= product.price %>">
+                            </div>
+                            <div class="invalid-feedback">
+                                Please enter a valid price.
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="productImage" class="form-label" style="font-weight: bold;">
+                                <i class="fas fa-image me-2"></i>Product Image
+                            </label>
+                            <input type="file" id="productImage" name="image" class="form-control" accept="image/*">
+                            <div class="mt-2">
+                                <img src="/<%= product.image %>" alt="Current Product Image" style="max-width: 100px; border-radius: 5px;">
+                                <p class="text-muted small">Current Image</p>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="productCategory" class="form-label" style="font-weight: bold;">
+                                <i class="fas fa-list me-2"></i>Category
+                            </label>
+                            <select id="productCategory" name="category" class="form-select" required>
+                                <option value="" disabled>Select a category</option>
+                                <option value="MEN" <%= product.category === 'MEN' ? 'selected' : '' %>>Men</option>
+                                <option value="WOMEN" <%= product.category === 'WOMEN' ? 'selected' : '' %>>Women</option>
+                                <option value="KIDS" <%= product.category === 'KIDS' ? 'selected' : '' %>>Kids</option>
+                                <option value="ACCESSORIES" <%= product.category === 'ACCESSORIES' ? 'selected' : '' %>>Accessories</option>
+                                <option value="BEAUTY" <%= product.category === 'BEAUTY' ? 'selected' : '' %>>Beauty</option>
+                            </select>
+                            <div class="invalid-feedback">
+                                Please select a product category.
+                            </div>
+                        </div>
+
+                        <!-- Featured Product -->
+                        <div class="mb-3">
+                            <label class="form-label" style="font-weight: bold;">
+                                <i class="fas fa-star me-2"></i>Featured Product
+                            </label>
+                            <div class="d-flex">
+                                <div class="form-check me-3">
+                                    <input type="checkbox" id="featuredYes" name="isFeatured" class="form-check-input" <%= product.isFeatured ? 'checked' : '' %>>
+                                    <label class="form-check-label" for="featuredYes">isFeatured</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-save me-2"></i>Save Changes
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
